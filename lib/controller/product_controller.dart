@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:vending_machine/model/product_model.dart';
 import 'package:vending_machine/model/product_store_model.dart';
 
+// ProductController keeps a store of the products in the vending machine,
+// and implements a method for removing them.
 class ProductController {
   List<ProductStoreModel> _productStore;
 

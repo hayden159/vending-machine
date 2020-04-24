@@ -43,7 +43,7 @@ class VendingMachineController {
   CoinStoreController _coinStoreController;
   StreamController<CoinModel> _coinAddedStreamController;
 
-  /// Constructor ---------------------------------------------------
+  // Constructor
   VendingMachineController(List<ProductStoreModel> productStoreModel,
       List<CoinStoreModel> coinStoreModel,
       {CoinParserController coinParserController,
@@ -88,11 +88,9 @@ class VendingMachineController {
         new CoinStoreController(coinStoreModel,
             coinStreamController: _coinAddedStreamController);
     _coinStoreController.coinStoreOutputStream.listen(_updateCoinStore);
-  }
+  } // End Constructor
 
-  /// End Constructor ---------------------------------------------
-
-  /// Helper functions that the UI would call -----------------------
+  // Helper functions that the UI would call
   void addQuarter() {
     _coinInputStreamController.add(QuarterModel().diameterStartRange);
   }
@@ -124,8 +122,8 @@ class VendingMachineController {
   void pressCoinReturn() {
     _returnCoinsAndReset();
   }
+  // end Helper Functions
 
-  /// end Helper Functions ---------------------------------------------
 
   void _returnCoinsAndReset() {
     if (_vendingMachineStore.amountInserted > 0.0) {
@@ -147,7 +145,6 @@ class VendingMachineController {
     _coinReturnInputController.add("invalid coin");
   }
 
-  // Display update listeners
   void _displayCurrentAmount() {
     _displayInputStreamController
         .add(_vendingMachineStore.amountInserted.toString());
@@ -201,7 +198,7 @@ class VendingMachineController {
   String _getInitialVendingMachineMessage() {
     bool outOfAnyCoins = _vendingMachineStore.coinStoreModel
         .any((CoinStoreModel coinStoreModel) {
-      return coinStoreModel.store<1;
+      return coinStoreModel.store < 1;
     });
     if (outOfAnyCoins) {
       return Strings().exactChangeOnly;

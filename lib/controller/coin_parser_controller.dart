@@ -2,6 +2,9 @@ import 'dart:async';
 
 import 'package:vending_machine/model/coin_model.dart';
 
+
+// CoinParserController accepts coin diameters through a 'coin slot'
+// and parse them into coin models.
 class CoinParserController {
   // input stream controllers (user coin input)
   StreamController<double> _coinInputStreamController;

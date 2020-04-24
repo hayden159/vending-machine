@@ -2,8 +2,9 @@ import 'dart:async';
 
 import 'package:vending_machine/strings.dart';
 
-// CoinReturnController is a fairly simple class that outputs what it is given,
-// but maintains a state that it can broadcast at any given time
+// VendingMachineDisplayController is a simple class that outputs what it is
+// given, but it also maintains a '_currentDisplay' String that it can broadcast
+// at any given time
 class VendingMachineDisplayController {
   String _currentDisplay;
 

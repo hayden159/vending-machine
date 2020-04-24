@@ -7,7 +7,7 @@ class CoinStoreController {
   List<CoinStoreModel> _coinStore;
 
   // input stream controllers
-  StreamController<CoinModel> _coinModelInputStream;
+  StreamController<CoinModel> _coinModelInputStreamController;
 
   // output streams
   StreamController<List<CoinStoreModel>> _coinStoreOutputController;
@@ -16,9 +16,9 @@ class CoinStoreController {
   CoinStoreController(List<CoinStoreModel> coinStore,
       {StreamController<CoinModel> coinStreamController}) {
     _coinStore = coinStore;
-    _coinModelInputStream =
+    _coinModelInputStreamController =
         coinStreamController ?? new StreamController<CoinModel>();
-    coinStreamController.stream.listen(_handleNewCoin);
+    _coinModelInputStreamController.stream.listen(_handleNewCoin);
     _coinStoreOutputController = new StreamController(
         onListen: () => _coinStoreOutputController.add(_coinStore));
     coinStoreOutputStream = _coinStoreOutputController.stream;
@@ -32,6 +32,6 @@ class CoinStoreController {
   }
 
   dispose() {
-    _coinModelInputStream.close();
+    _coinModelInputStreamController.close();
   }
 }

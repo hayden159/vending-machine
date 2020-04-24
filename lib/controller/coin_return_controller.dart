@@ -1,7 +1,8 @@
 import 'dart:async';
 
-// CoinReturnController is a really simple class that outputs what it is given.
-// it would have more use if it were hooked up to a UI element.
+// CoinReturnController is a simple class that outputs the string
+// it was given. Though it seems unnecessary, it is used for testing
+// and would be useful when connected to a UI.
 class CoinReturnController {
 
   StreamController<String> coinReturnInputController;
